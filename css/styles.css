@@ -1,0 +1,46 @@
+
+/* 
+F4F9F4
+A7D7C5
+74B49B
+5C8D89
+
+
+E1FFB1
+C7F2A4
+B6E388
+FCFFB2
+*/
+
+div{
+    margin-left: 100px;
+}
+h1,h2{
+    display: inline-block;
+    margin-left: 200px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+h1{
+    text-align: center;
+    padding-top: 2%;
+}
+.top{
+    height: 1000px;
+    width: auto;
+    background-color: #F4F9F4;
+}
+.middle{
+    height: 700px;
+    width: auto;
+    background-color: #A7D7C5;
+}
+.bottom{
+    height: 1000px;
+    width: auto;
+    background-color:#F4F9F4;
+}
+.footer{
+    height: 300px;
+    width: auto;
+}
