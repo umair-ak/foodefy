@@ -1,0 +1,18 @@
+body{
+    background-color:#F4F9F4 ;
+  
+}
+
+form{
+    width: 800px;
+    margin-top: 2%;
+    margin-left: 550px;
+}
+div{
+    padding: 5px 7px 7px;
+}
+
+h1{
+text-align: center;
+padding-top: 20px;
+}
