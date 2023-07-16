@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- icone -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
-    <!-- css file -->
-    <link rel="stylesheet" href="/css/styles.css">
-    
-    <title>Foodefy</title>
-</head>
-<body>
-    
-    
-    <!-- header -->
-    
-    <header>
-        <a href="#" class="logo"><i class="fas fa-utensils"></i>Foodefy</a>
-        
-        <div id="menu-bar" class="fas fa-bars"> </div>
-        
-        <nav class="navbar">
-            <a href="#home">home</a>
-            <a href="#popular">popular</a>
-            <a href="/menu">Menu</a>
-            <span class="fa-solid fa-cart-shopping"></span>
-        </nav>
-    </header>
-    
-    <!-- header end -->
+    <%- include("partials/header"); -%>
     
     <!-- home start -->
     
@@ -53,7 +20,7 @@
     
     <!-- popular section started  -->
     <section class="popular" id="popular">
-        
+
         <form action="/popular" method="post">
         <h1 class="heading">most <span>popular</span></h1>
         <div class="box-container">
@@ -186,36 +153,4 @@
     
     <!-- review section ends -->
     
-    
-
-    <!-- footer section start -->
-   <section class="footer">
-
-     <div class="share">
-         <a href="www.facebook.com" class="btn">facebook</a>
-         <a href="www.twitter.com" class="btn">twitter</a>
-         <a href="www.instagram.com" class="btn">instagram</a>
-         <a href="www.Github.com" class="btn">GitHub</a>
-         <a href="www.linkedin.com" class="btn">linkedin</a>
-     </div>
-
-     <h2 class="creadit">created by <span>Saif, Umair and Ahsan</span></h2>
-     <h3 class="copyright"> &#169 2023 copyright-All Rights Reserved</h3>
-
-   </section>
-
-    <!-- footer section ends -->
-
-    <!-- loder -->
-
-    <div class="loader-container">
-        <img src="images/loader.gif" alt="">
-    </div>
-
-
-
-
-    <!-- js file link -->
-    <script src="script.js"></script>
-</body>
-</html>
+    <%- include("partials/footer"); -%>
