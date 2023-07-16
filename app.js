@@ -7,6 +7,10 @@ app.get("/", function(req, res){
     res.sendFile(__dirname + "/index.html");
 });
 
+app.get("/menu",function(req,res){
+    res.sendFile(__dirname+"/menu.html");
+});
+
 app.listen(3000,function(){
     console.log("everything is working fine");
 });
