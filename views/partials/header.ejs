@@ -7,7 +7,8 @@
     
     <!-- icone -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
     <!-- css file -->
     <link rel="stylesheet" href="/css/styles.css">
     
@@ -27,6 +28,25 @@
             <a href="#home">home</a>
             <a href="#popular">popular</a>
             <a href="/menu">Menu</a>
-            <span class="fa-solid fa-cart-shopping"></span>
+            <i class="material-symbols-outlined" id="cart-btn">
+                shopping_cart
+            </i>    
         </nav>
+
+        <div class="cart-items-container" id="cartitems">
+            <div class="cart-item">
+                <span class="fas fa-times"></span>
+                <img src="images/p-1.jpg" alt="">
+                <div class="content">
+                    <h3>item 1</h3>
+                    <div class="price">
+                        Rs 250 /-
+                    </div>
+                </div>
+
+            </div>
+            <a href="#" class="btn">Checkout</a>
+
+        </div>
+
     </header>

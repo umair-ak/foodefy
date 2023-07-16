@@ -7,17 +7,23 @@ menu.onclick = () =>{
   navbar.classList.toggle('active');
 
 }
-window.onscroll = () =>{
-  menu.classList.remove('fa-times');
-  navbar.classList.remove('active');
+// window.onscroll = () =>{
+//   menu.classList.remove('fa-times');
+//   navbar.classList.remove('active');
 
-  if(window.scrollY > 60){
-    document.querySelector('#scroll-top').classList.add('active');
-  }else{document.querySelector('#scroll-top').classList.remove('active');
+//   if(window.scrollY > 60){
+//     document.querySelector('#scroll-top').classList.add('active');
+//   }else{document.querySelector('#scroll-top').classList.remove('active');
 
-  }
+// }
 
-}
+// }
+let cartbtn = document.getElementById("cart-btn")
+cartbtn.onclick = ()=>{
+  let cartItems = document.getElementById("cartitems");
+  cartItems.classList.toggle("passive");
+};
+
 
 function loader(){
   document.querySelector('.loader-container').classList.add('fade-out');
