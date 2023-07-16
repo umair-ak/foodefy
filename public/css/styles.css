@@ -35,7 +35,7 @@ section{
   margin-top: 2%;
 }
 
-i{
+#cart-btn{
   position: absolute;
   margin-left: 20px;
   cursor: pointer;
@@ -209,12 +209,12 @@ header .cart-items-container .cart-item .price{
 }
 
 .home .content h3{
-  font-size: 4rem;
+  font-size: 5rem;
   color:#333;
 }
 
 .home .content p{
-  font-size: 1.4rem;
+  font-size: 2rem;
   color:#666;
   padding:1rem 0;
 }
