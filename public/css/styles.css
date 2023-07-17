@@ -41,6 +41,12 @@ section{
   cursor: pointer;
 }
 
+#acc-btn{
+  position: absolute;
+  margin-left: 60px;
+  cursor: pointer;
+}
+
 .heading{
   text-align: center;
   font-size: 3.5rem;
@@ -112,7 +118,7 @@ header .logo i{
 header .navbar a{
   font-size: 2rem;
   margin-left: 2rem;
-  color:#666;
+  color:#000000;
 }
 
 header .navbar a:hover{

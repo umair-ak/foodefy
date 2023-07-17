@@ -21,6 +21,7 @@ menu.onclick = () =>{
 let cartbtn = document.getElementById("cart-btn")
 cartbtn.onclick = ()=>{
   let cartItems = document.getElementById("cartitems");
+  
   cartItems.classList.toggle("passive");
 };
 
