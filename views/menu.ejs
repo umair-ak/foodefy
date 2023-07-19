@@ -1,54 +1,142 @@
 <%- include("partials/header"); -%>
 <section class="popular" id="popular" style="padding-top: 40px;">
-
-    <form action="/popular" method="post">
-
+        
+    <h1 class="heading"><span>Menu</span></h1>
+    
+    
     <div class="box-container">
+
         <div class="box">
             <span class="price">Rs 250 /-</span>
             <img src="images/p-1.jpg" alt="">
             <h3>Chicken burger</h3>
-            <div class="star">
-            </div>
-            <button class="btn" type="submit" name="order">order now</button> 
-            <button class="btn" type="submit" name="cart">Add to cart</button> 
-            
-            
+
+            <form action="/menu/burger" method="post">
+                
+                <input type="hidden" name="img" value="p-1.jpg">
+                <input type="hidden" name="price" value="250">
+                <button class="btn" type="submit" name="action" value="order">order now</button> 
+                <button class="btn" type="submit" name="action" value="cart">Add to cart</button>
+                </form>
         </div>
-        
+
         <div class="box">
             <span class="price">Rs 300 /- </span>
             <img src="images/p-2.jpg" alt="">
-            <h3>Cheese cakes</h3>
-            <button class="btn" type="submit" name="order">order now</button> 
-            <button class="btn" type="submit" name="cart">Add to cart</button>
+            <h3>Cakes</h3>
+            <form action="/menu/cakes" method="post">
+                <input type="hidden" name="price" value="350">
+                <input type="hidden" name="img" value="p-2.jpg">
+                <button class="btn" type="submit" name="action" value="order">order now</button> 
+                <button class="btn" type="submit" name="action" value="cart">Add to cart</button>
+            </form>
         </div>
-        
+
         <div class="box">
             <span class="price">Rs 80 /-</span>
             <img src="images/p-3.jpg" alt="">
             <h3>Snacks</h3>
-            <button class="btn" type="submit" name="order">order now</button> 
-            <button class="btn" type="submit" name="cart">Add to cart</button>
-        </div>
-        
+            <form action="/menu/Snacks" method="post">
+                <input type="hidden" name="price" value="80">
+                <input type="hidden" name="img" value="p-3.jpg">
+                <button class="btn" type="submit" name="action" value="order">order now</button> 
+                <button class="btn" type="submit" name="action" value="cart">Add to cart</button>
+            </form>
+            </div>
+
         <div class="box">
             <span class="price">Rs 80 /-</span>
             <img src="images/p-4.jpg" alt="">
             <h3>Cup-cakes</h3>
-            <button class="btn" type="submit" name="order">order now</button> 
-            <button class="btn" type="submit" name="cart">Add to cart</button>
-        </div>
-        
+
+            <form action="/menu/Cup-cakes" method="post">
+                <input type="hidden" name="price" value="80">
+                <input type="hidden" name="img" value="p-4.jpg">
+                <button class="btn" type="submit" name="action" value="order">order now</button> 
+                <button class="btn" type="submit" name="action" value="cart">Add to cart</button>
+            </form>
+            </div>
+
+
         <div class="box">
             <span class="price">Rs 50 /-</span>
             <img src="images/p-5.jpg" alt="">
             <h3>Cold drinks</h3>
-            <button class="btn" type="submit" name="order">order now</button> 
-            <button class="btn" type="submit" name="cart">Add to cart</button>
-        </div>
+            <form action="/menu/cold-drink" method="post">
+                <input type="hidden" name="price" value="50">
+                <input type="hidden" name="img" value="p-5.jpg">
+                <button class="btn" type="submit" name="action" value="order">order now</button> 
+                <button class="btn" type="submit" name="action" value="cart">Add to cart</button>
+            </form>
+            </div>
+
+            <div class="box">
+                <span class="price">Rs 200 /-</span>
+                <img src="images/p-6.jpg" alt="">
+                <h3>Chicken Nuggets</h3>
+    
+                <form action="/menu/Chicken-Nuggets" method="post">
+                    <input type="hidden" name="price" value="200">
+                    <input type="hidden" name="img" value="p-6.jpg">
+                    <button class="btn" type="submit" name="action" value="order">order now</button> 
+                    <button class="btn" type="submit" name="action" value="cart">Add to cart</button>
+                </form>
+                </div>
+
+                <div class="box">
+                    <span class="price">Rs 350 /-</span>
+                    <img src="images/p-7.jpg" alt="">
+                    <h3>Biryani</h3>
+        
+                    <form action="/menu/Biryani" method="post">
+                        <input type="hidden" name="price" value="350">
+                        <input type="hidden" name="img" value="p-7.jpg">
+                        <button class="btn" type="submit" name="action" value="order">order now</button> 
+                        <button class="btn" type="submit" name="action" value="cart">Add to cart</button>
+                    </form>
+                    </div>
+
+                    <div class="box">
+                        <span class="price">Rs 150 /-</span>
+                        <img src="images/p-8.jpg" alt="">
+                        <h3>Pizzas</h3>
+            
+                        <form action="/menu/Pizzas" method="post">
+                            <input type="hidden" name="price" value="150">
+                            <input type="hidden" name="img" value="p-8.jpg">
+                            <button class="btn" type="submit" name="action" value="order">order now</button> 
+                            <button class="btn" type="submit" name="action" value="cart">Add to cart</button>
+                        </form>
+                        </div>
+
+                        <div class="box">
+                            <span class="price">Rs 80 /-</span>
+                            <img src="images/p-9.jpg" alt="">
+                            <h3>Idly Wada</h3>
+                
+                            <form action="/menu/Idly-Wada" method="post">
+                                <input type="hidden" name="price" value="80">
+                                <input type="hidden" name="img" value="p-9.jpg">
+                                <button class="btn" type="submit" name="action" value="order">order now</button> 
+                                <button class="btn" type="submit" name="action" value="cart">Add to cart</button>
+                            </form>
+                            </div>
+        
+                        <div class="box">
+                            <span class="price">Rs 100 /-</span>
+                            <img src="images/p-10.jpg" alt="">
+                            <h3>Ice Cream</h3>
+                
+                            <form action="/menu/IceCream" method="post">
+                                <input type="hidden" name="price" value="100">
+                                <input type="hidden" name="img" value="p-10.jpg">
+                                <button class="btn" type="submit" name="action" value="order">order now</button> 
+                                <button class="btn" type="submit" name="action" value="cart">Add to cart</button>
+                            </form>
+                            </div>
         
     </div>
-</form>
+
+
 </section>
     <%- include("partials/footer"); -%>

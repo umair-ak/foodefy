@@ -41,18 +41,33 @@
         </nav>
 
         <div class="cart-items-container" id="cartitems">
+            <%if(bool){%>
+                <%if(items.length==0){%>
+                    <a href="/menu" class="btn">Add Items</a>
+                <%}else{%>
+            <%items.forEach((item)=>{%>
             <div class="cart-item">
-                <span class="fas fa-times"></span>
-                <img src="images/p-1.jpg" alt="">
+                <form action="/cart/<%=item['name']%>" method="post">
+                    <button type="submit">
+                        <span class="fas fa-times"></span>
+                    </button>
+                </form>
+                <img src="images/<%=item['img']%>" alt="">
                 <div class="content">
-                    <h3>item 1</h3>
+                    <h3><%=item['name']%></h3>
                     <div class="price">
-                        Rs 250 /-
+                        <%=item['price']%>
                     </div>
                 </div>
-
             </div>
-            <a href="#" class="btn">Checkout</a>
+            <%})%>
+            <form action="/ordcnfrm" method="post">
+                <button  class="btn">Checkout</button>
+            </form>
+            <%}%>
+            <%}else{%>
+                <a href="/login" class="btn">Login</a>
+            <%}%>
 
         </div>
 

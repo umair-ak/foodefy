@@ -1,0 +1,112 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/ordercnfrm.css">
+<div class="container my-5 py-5">
+
+    <!--Section: Design Block-->
+    
+    <!--Section: Design Block-->
+  <div class="row">
+    <div class="col-md-4">
+      
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <h5 class="mb-0 text-font">No of items : <%=items.length%></h5>
+          </div>
+          <%let total = 0%>
+          <%items.forEach((item)=>{%>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <img src="/images/<%=item['img']%>"
+                  class="rounded-3" style="width: 100px;"/>
+                </div>
+                <div class="col-md-4">
+                  
+                  <% total = total + +item['price']%>
+                <span class="mb-0 text-price">Rs <%=item['price']%> /-</span>
+                <p class="mb-0 text-descriptions"><%=item['name']%> </p>
+                
+                <p class="text-descriptions mt-0">Qty:<span class="text-descriptions fw-bold">1</span>
+                </p>
+              </div>
+              </div>
+            </div>
+            <%})%>
+            <div class="card-footer mt-4">
+              <ul class="list-group list-group-flush">
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center px-0 fw-bold text-uppercase">
+                  Total to pay
+                  <span>Rs <%=total%>  /-</span>
+                </li>
+              </ul>
+            </div>
+
+
+          
+        </div>
+      
+    </div> <!-- this is the end of the products page-->
+    <div class="col-lg-8">
+      
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <h5 class="mb-0 text-font text-uppercase">Delivery address</h5>
+          </div>
+          <div class="card-body">
+            <form action="/ordcnfrmd" method="post">
+
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="form11Example1" class="form-control" />
+                    <label class="form-label" for="form11Example1">First name</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="form11Example2" class="form-control" />
+                    <label class="form-label" for="form11Example2">Last name</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Text input -->
+              <div class="form-outline mb-4">
+                <input type="text" id="form11Example4" class="form-control" />
+                <label class="form-label" for="form11Example4">Address</label>
+              </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input type="email" id="form11Example5" class="form-control" />
+                <label class="form-label" for="form11Example5">Email</label>
+              </div>
+
+              <!-- Number input -->
+              <div class="form-outline mb-4">
+                <input type="number" id="form11Example6" class="form-control" />
+                <label class="form-label" for="form11Example6">Phone</label>
+              </div>
+
+              <!-- Message input -->
+              <div class="form-outline mb-4">
+                <textarea class="form-control" id="form11Example7" rows="4"></textarea>
+                <label class="form-label" for="form11Example7">Additional information</label>
+              </div>
+
+              <div class="text-center">
+                <button type="submit" class="btn button-order col-md-10">Place order</button>
+              </div>
+              
+            </form>
+          </div>
+
+        </div>
+
+      </div> 
+    </div>
+  </div>
+ 
+
+ 

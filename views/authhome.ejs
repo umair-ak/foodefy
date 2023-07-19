@@ -7,10 +7,14 @@
     <h1 class="display-3">Foodefy</h1>
  
     <hr>
+    <%if(!bool){%>
     <a class="btn btn-light btn-lg" href="/register" role="button">Register</a>
     <a class="btn btn-dark btn-lg" href="/login" role="button">Login</a>
-    
-
+    <%}else{%>
+      
+        <a class="btn btn-light btn-lg" href="/login" role="button">logout</a>
+     
+      <%}%>
   </div>
 </div>
 

@@ -25,25 +25,28 @@ app.use(passport.session());
 mongoose.connect("mongodb://127.0.0.1:27017/userDB", {useNewUrlParser:true, useUnifiedTopology:true} );
 
 mongoose.set("useCreateIndex", true);
+mongoose.set('useFindAndModify', false);
 
-const Items = new mongoose.Schema({
+const itemSchema = new mongoose.Schema({
     name : String,
-    price : Number,
-    img_name : String
+    price : String,
+    img : String
 })
+
+const Item = new mongoose.model("item",itemSchema);
 
 const userSchema=new mongoose.Schema({
     email:String,
     password:String,
     googleId:String,
     facebookId:String,
-    cartItems : [Items]
+    cartItems : [itemSchema]
 });
 
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate)
 
-const User=new mongoose.model("User", userSchema);
+const User =new mongoose.model("User", userSchema);
 
 passport.use(User.createStrategy());
 
@@ -109,9 +112,14 @@ app.get("/login", function(req,res){
     res.render("authlogin");
 });
 app.get("/home", function(req,res){
-    res.render("authhome");
+    let nofUsers = Object.keys(presentuser).length;
+    if(nofUsers==0){
+        res.render("authhome",{bool:false});
+    }
+    else{
+        res.render("authhome",{bool:true});
+    }
 });
-
 app.get("/register", function(req,res){
     res.render("authregister");
 });
@@ -156,12 +164,14 @@ app.post("/register", function(req, res){
         }
     });
  })
-
+var presentuser = {}
 app.post("/login", function(req,res){
+    presentuser = {}
     const user=new User({
         username:req.body.username,
         password:req.body.password
     });
+    presentuser["username"]= req.body.username;
     req.login(user, function(err){
         if(err){
             console.log(err);
@@ -173,12 +183,122 @@ app.post("/login", function(req,res){
     });
 });
 
-app.get("/", function(req, res){
-    res.render("index");
+
+async function addToCart(item,price,img,res,route){
+
+    const newitem = new Item({
+        name:item,
+        price:price,
+        img:img
+    });
+
+    const username = presentuser["username"];
+    const user = await User.findOne({username:username});
+    if(user==null){
+        res.redirect("/login");
+    }else{
+        user["cartItems"].push(newitem);
+        user.save();
+        res.redirect(route);
+    }
+}
+
+
+app.get("/",async function(req, res){
+    let nofUsers = Object.keys(presentuser).length;
+    if(nofUsers==0){
+        
+        res.render("index",{bool:false});
+        
+    }
+    else{
+        const user = await User.findOne({username:presentuser['username']});
+        if(user == null){
+            res.render("index",{bool:true,items:[]})
+        }else{
+            res.render("index",{bool:true,items:user["cartItems"]});
+        }
+        
+        
+    }
 });
 
-app.get("/menu",function(req,res){
-    res.render("menu");
+app.post("/home/:item",function(req,res){
+    const item = req.params.item;
+    const price = req.body.price;
+    const img = req.body.img;
+    const action = req.body.action;
+    if(action == "cart"){
+        addToCart(item,price,img,res,"/#popular");
+    }else{
+        let nofUsers = Object.keys(presentuser).length;
+        if(nofUsers==0){
+            res.redirect("/login");
+        }else{
+            const buy = {
+                name:item,
+                price:price,
+                img:img
+            };
+            const allitems = [buy];
+            res.render("orderconfirm",{items:allitems});
+        }
+}
+});
+app.post("/menu/:item",function(req,res){
+    const item = req.params.item;
+    const price = req.body.price;
+    const img = req.body.img;
+    const action = req.body.action;
+    if(action == "cart"){
+        addToCart(item,price,img,res,"/menu");
+    }else{
+        let nofUsers = Object.keys(presentuser).length;
+        if(nofUsers==0){
+            res.redirect("/login");
+        }else{
+
+            const buy = {
+                name:item,
+                price:price,
+                img:img
+            };
+            const allitems = [buy];
+            res.render("orderconfirm",{items:allitems});
+        }
+}
+});
+
+// deleting an item from cart
+app.post("/cart/:item",async (req,res)=>{
+    const user = await User.findOneAndUpdate({username:presentuser['username']},{$pull:{cartItems:{name:req.params.item}}});    
+
+    res.redirect("/");
+});
+
+app.post("/ordcnfrm",async (req,res)=>{
+    const user = await User.findOne({username:presentuser['username']});
+    res.render("orderconfirm",{items:user['cartItems']});
+});
+
+app.post("/ordcnfrmd", (req,res)=>{
+    res.render("ordcnfrmd");
+});
+
+app.get("/menu", async function(req,res){
+    let nofUsers = Object.keys(presentuser).length;
+    if(nofUsers==0){
+        res.render("menu",{bool:false});
+    }
+    else{
+        const user = await User.findOne({username:presentuser['username']});
+        if(user == null){
+            res.render("menu",{bool:true,items:[]})
+        }else{
+            res.render("menu",{bool:true,items:user["cartItems"]});
+        }
+    
+    }
 });
 
 app.listen(3000,function(){
